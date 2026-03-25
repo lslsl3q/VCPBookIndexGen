@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VCPBookIndexGen</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- 侧边栏 -->
+        <aside class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                    </svg>
+                </div>
+                <span class="logo-text">BookIndexGen</span>
+            </div>
+            
+            <nav class="nav-menu">
+                <!-- 处理 -->
+                <a href="#" class="nav-item active" data-tab="process">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z"/>
+                    </svg>
+                    <span>处理</span>
+                </a>
+                <!-- [lslsl3q 修改结束] -->
+                <a href="#" class="nav-item" data-tab="output">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 01-1.125-1.125M3.375 19.5h7.5c.621 0 1.125-.504 1.125-1.125m-9.75 0V5.625m0 12.75v-1.5c0-.621.504-1.125 1.125-1.125m18.375 2.625V5.625m0 12.75c0 .621-.504 1.125-1.125 1.125m1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125m0 3.75h-7.5A1.125 1.125 0 0112 18.375m9.75-12.75c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125m17.25 0v1.5c0 .621-.504 1.125-1.125 1.125M3.375 5.625v1.5c0 .621.504 1.125 1.125 1.125m0 0h17.25m-17.25 0h7.5c.621 0 1.125.504 1.125 1.125M3.375 8.25c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125m17.25-3.75h-7.5c-.621 0-1.125.504-1.125 1.125m8.625-1.125c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125m-17.25 0h7.5m-7.5 0c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125M12 10.875v-1.5m0 1.5c0 .621-.504 1.125-1.125 1.125M12 10.875c0 .621.504 1.125 1.125 1.125m-2.25 0c.621 0 1.125.504 1.125 1.125M13.125 12h7.5"/>
+                    </svg>
+                    <span>输出文件</span>
+                </a>
+                <!-- [lslsl3q 添加] 设置导航项 -->
+                <a href="#" class="nav-item" data-tab="settings">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.865l-.213 1.281c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.37-.312-.682-.644-.865a6.446 6.446 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.865l.214-1.28z"/>
+                        <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
+                    <span>设置</span>
+                </a>
+                <!-- [lslsl3q 添加结束] -->
+            </nav>
+            
+            <div class="sidebar-footer">
+                <!-- [lslsl3q 添加] 主题切换按钮 -->
+                <button class="theme-toggle" id="themeToggle" title="切换主题">
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/>
+                    </svg>
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/>
+                    </svg>
+                </button>
+                <!-- [lslsl3q 添加结束] -->
+                <div class="status-indicator" id="statusIndicator">
+                    <span class="status-dot"></span>
+                    <span class="status-text">就绪</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- 主内容区 -->
+        <main class="main-content">
+            <!-- 处理页面 -->
+            <!-- fileInput 移到这里，供全局使用 -->
+            <input type="file" id="fileInput" accept=".txt,.md" hidden>
+            <section class="tab-content active" id="tab-process">
+                <div class="process-layout">
+                    <!-- 左侧：配置面板 -->
+                    <div class="process-config-panel">
+                        <div class="config-scroll">
+                            <!-- 基本设置 -->
+                            <div class="config-section">
+                                <h3 class="config-section-title">基本设置</h3>
+                                <div class="config-group">
+                                    <div class="config-item">
+                                        <label>书名</label>
+                                        <input type="text" id="bookName" placeholder="留空则使用文件名">
+                                    </div>
+                                    <div class="config-item">
+                                        <label>处理模式</label>
+                                        <div class="mode-switch">
+                                            <button type="button" class="mode-btn active" data-mode="speed" onclick="selectMode('speed')">
+                                                <span class="mode-icon">⚡</span>
+                                                <span class="mode-name">速读</span>
+                                            </button>
+                                            <button type="button" class="mode-btn" data-mode="deep" onclick="selectMode('deep')">
+                                                <span class="mode-icon">📖</span>
+                                                <span class="mode-name">精读</span>
+                                            </button>
+                                        </div>
+                                        <input type="hidden" name="mode" id="processMode" value="speed">
+                                    </div>
+                                    <div class="config-item">
+                                        <label>章节正则 <span class="optional">（可选）</span></label>
+                                        <input type="text" id="customPattern" placeholder="例如：^第\d+章">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 高级设置 -->
+                            <div class="config-section collapsible">
+                                <h3 class="config-section-title" onclick="toggleConfigSection(this)">
+                                    <span>高级设置</span>
+                                    <svg class="collapse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M19 9l-7 7-7-7"/>
+                                    </svg>
+                                </h3>
+                                <div class="config-group" style="display: none;">
+                                    <div class="config-row">
+                                        <div class="config-item">
+                                            <label>分块大小</label>
+                                            <input type="number" id="process_chunk_size" placeholder="6000">
+                                        </div>
+                                        <div class="config-item">
+                                            <label>分块重叠</label>
+                                            <input type="number" id="process_chunk_overlap" placeholder="200">
+                                        </div>
+                                    </div>
+                                    <div class="config-row">
+                                        <div class="config-item">
+                                            <label>并发数</label>
+                                            <input type="number" id="process_max_concurrency" placeholder="2">
+                                        </div>
+                                        <div class="config-item">
+                                            <label>滚动上下文</label>
+                                            <input type="number" id="process_rolling_context_max" placeholder="4000">
+                                        </div>
+                                    </div>
+                                    <div class="config-row">
+                                        <div class="config-item">
+                                            <label>文件编码</label>
+                                            <select id="process_file_encoding">
+                                                <option value="auto">自动检测</option>
+                                                <option value="utf-8">UTF-8</option>
+                                                <option value="utf-8-sig">UTF-8 BOM</option>
+                                                <option value="gb18030">GB18030</option>
+                                            </select>
+                                        </div>
+                                        <div class="config-item">
+                                            <label>输出目录</label>
+                                            <input type="text" id="process_output_dir" placeholder="./output">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 右侧：操作面板 -->
+                    <div class="process-action-panel">
+                        <!-- [lslsl3q 修改] 上部区域：文件卡片 + 进度/终端 并排 -->
+                        <div class="action-panel-top">
+                            <!-- 文件信息卡片 -->
+                            <div class="action-card file-card-premium" id="fileCardPremium">
+                                <div class="card-header-premium">
+                                    <div class="header-icon-wrapper">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                            <path d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/>
+                                        </svg>
+                                    </div>
+                                    <span class="header-title">待处理文件</span>
+                                    <button class="btn-clear-file" id="btnClearFile" onclick="clearFileAndReset()" title="清除文件" style="display: none;">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M6 18L18 6M6 6l12 12"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="file-info-premium" id="processFileInfo">
+                                    <div class="file-empty-clickable" onclick="document.getElementById('fileInput').click()">
+                                        <div class="empty-icon-simple">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                                <path d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z"/>
+                                            </svg>
+                                        </div>
+                                        <p class="empty-text">点击上传文件</p>
+                                        <p class="empty-hint-simple">支持 .txt 和 .md 格式</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 右侧：进度 + 终端 -->
+                            <div class="status-terminal-panel">
+                                <!-- 进度显示 -->
+                                <div class="action-card progress-card" id="progressSection">
+                                    <div class="card-header">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                            <path d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"/>
+                                        </svg>
+                                        <span>处理进度</span>
+                                    </div>
+                                    <div class="progress-content">
+                                        <div class="progress-header">
+                                            <span class="progress-percent" id="progressPercent">0%</span>
+                                        </div>
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" id="progressFill"></div>
+                                        </div>
+                                        <p class="progress-message" id="progressMessage">等待开始...</p>
+                                    </div>
+                                </div>
+
+                                <!-- 日志终端 -->
+                                <div class="action-card log-card" id="logSection">
+                                    <div class="card-header">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                            <path d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z"/>
+                                        </svg>
+                                        <span>处理日志</span>
+                                        <button class="btn-stop-log" id="btnStopLog" onclick="stopMainProcess()" title="停止处理" style="display: none;">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M6 18L18 6M6 6l12 12"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="log-terminal" id="logTerminal">
+                                        <pre id="logContent">等待处理...</pre>
+                                    </div>
+                                    <!-- 输入区域 -->
+                                    <div class="terminal-input-area" id="terminalInputArea" style="display: none;">
+                                        <div class="input-prompt" id="inputPrompt"></div>
+                                        <div class="input-row">
+                                            <span class="input-prefix">&gt;</span>
+                                            <input type="text" id="terminalInput" class="terminal-input" placeholder="输入后按回车发送..." autocomplete="off">
+                                            <button class="btn-send-input" onclick="sendTerminalInput()">发送</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 开始按钮 -->
+                        <button class="btn-start-process" id="startProcess">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z"/>
+                            </svg>
+                            <span>开始处理</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 输出文件页面 -->
+            <section class="tab-content" id="tab-output">
+                <div class="page-header">
+                    <h1>输出文件</h1>
+                    <p class="page-desc">查看已处理的书籍、编辑和下载结果</p>
+                </div>
+
+                <div class="output-empty" id="outputEmpty">
+                    <div class="empty-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z"/>
+                        </svg>
+                    </div>
+                    <p>暂无已处理的书籍</p>
+                    <p class="empty-hint">处理完成后，书籍将显示在这里</p>
+                </div>
+
+                <!-- 三栏布局：书籍列表 | 文件列表 | 编辑器 -->
+                <div class="output-container" id="outputContainer" style="display: none;">
+                    <!-- 左侧：书籍列表 -->
+                    <div class="output-books-panel">
+                        <div class="books-panel-header">
+                            <span>书籍列表</span>
+                            <span class="book-count" id="outputBookCount">0 本</span>
+                        </div>
+                        <div class="books-list-panel" id="booksListPanel"></div>
+                    </div>
+                    <!-- 中间：文件列表 -->
+                    <div class="output-files-panel">
+                        <div class="files-header">
+                            <span id="outputBookName">选择书籍</span>
+                            <span class="file-count"><span id="outputFileCount">0</span> 个文件</span>
+                        </div>
+                        <div class="files-list" id="filesList"></div>
+                    </div>
+                    <!-- 右侧：编辑器 -->
+                    <div class="editor-panel" id="editorPanel">
+                        <div class="editor-placeholder">
+                            <div class="empty-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"/>
+                                </svg>
+                            </div>
+                            <p>选择文件进行编辑</p>
+                        </div>
+                        <div class="editor-content" id="editorContent" style="display: none;">
+                            <div class="editor-header">
+                                <span class="editor-filename" id="editorFilename">文件名.md</span>
+                                <div class="editor-actions">
+                                    <button class="btn-editor btn-save" id="btnSave" onclick="saveFileContent()">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                            <path d="M4.5 12.75l6 6 9-13.5"/>
+                                        </svg>
+                                        保存
+                                    </button>
+                                    <button class="btn-editor btn-close" onclick="closeEditor()">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                            <path d="M6 18L18 6M6 6l12 12"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="editor-status" id="editorStatus"></div>
+                            <textarea class="editor-textarea" id="editorTextarea" placeholder="文件内容..."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- [lslsl3q 添加] 设置页面 - 只保留 LLM 配置 -->
+            <section class="tab-content" id="tab-settings">
+                <div class="page-header">
+                    <h1>设置</h1>
+                    <p class="page-desc">配置 LLM 服务参数（一次配置，长期使用）</p>
+                </div>
+                
+                <div class="settings-container">
+                    <!-- LLM 配置 -->
+                    <div class="settings-section">
+                        <h2 class="settings-section-title">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z"/>
+                            </svg>
+                            LLM 服务配置
+                        </h2>
+                        <div class="settings-group">
+                            <div class="form-group">
+                                <div class="form-label-row">
+                                    <label>API Key</label>
+                                    <span class="form-help" title="用于调用 LLM 服务的密钥，从 OpenAI 或其他兼容服务的控制台获取">ⓘ</span>
+                                </div>
+                                <!-- [lslsl3q 修改] 添加密码显示/隐藏功能 -->
+                                <div class="password-input-wrapper">
+                                    <input type="password" id="config_api_key" placeholder="sk-xxxxx">
+                                    <button type="button" class="password-toggle-btn" onclick="togglePasswordVisibility('config_api_key', this)" title="显示/隐藏密码">
+                                        <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path class="eye-open" d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                            <circle class="eye-open" cx="12" cy="12" r="3"></circle>
+                                            <path class="eye-closed" d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                                            <line class="eye-closed" x1="1" y1="1" x2="23" y2="23"></line>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <p class="form-hint">用于调用 LLM 服务的密钥</p>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-label-row">
+                                    <label>Base URL</label>
+                                    <span class="form-help" title="LLM 服务的 API 地址。OpenAI 官方为 https://api.openai.com/v1，如使用第三方代理或本地部署，请填写对应地址">ⓘ</span>
+                                </div>
+                                <input type="text" id="config_base_url" placeholder="https://api.openai.com/v1">
+                                <p class="form-hint">LLM 服务的 API 地址</p>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-label-row">
+                                    <label>模型名称</label>
+                                    <span class="form-help" title="使用的 LLM 模型名称，如 gpt-4o-mini、gpt-4、claude-3-opus 等">ⓘ</span>
+                                </div>
+                                <input type="text" id="config_model" placeholder="gpt-4o-mini">
+                                <p class="form-hint">使用的 LLM 模型</p>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <div class="form-label-row">
+                                        <label>最大上下文</label>
+                                        <span class="form-help" title="模型的最大上下文 token 数，影响单次请求能处理的文本长度">ⓘ</span>
+                                    </div>
+                                    <input type="number" id="config_max_context_tokens" placeholder="128000">
+                                    <p class="form-hint">token 数</p>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-label-row">
+                                        <label>总结最大长度</label>
+                                        <span class="form-help" title="单次总结输出的最大 token 数">ⓘ</span>
+                                    </div>
+                                    <input type="number" id="config_summary_max_tokens" placeholder="2000">
+                                    <p class="form-hint">token 数</p>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-label-row">
+                                        <label>温度</label>
+                                        <span class="form-help" title="生成温度，0-2之间。越低越确定，越高越随机。建议 0.3">ⓘ</span>
+                                    </div>
+                                    <input type="number" id="config_temperature" step="0.1" placeholder="0.3">
+                                    <p class="form-hint">0-2 之间</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 保存按钮 -->
+                    <div class="settings-actions">
+                        <button class="btn-secondary" onclick="loadConfig()">重置</button>
+                        <button class="btn-primary" onclick="saveConfig()">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M4.5 12.75l6 6 9-13.5"/>
+                            </svg>
+                            保存配置
+                        </button>
+                    </div>
+                </div>
+            </section>
+            <!-- [lslsl3q 添加结束] -->
+        </main>
+    </div>
+
+    <!-- Toast 通知 -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>

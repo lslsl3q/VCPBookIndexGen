@@ -1,0 +1,6 @@
+# VCPBookIndexGen Web 界面依赖
+# 使用方法: uv pip install -r requirements-web.txt
+
+fastapi>=0.109.0
+uvicorn>=0.27.0
+python-multipart>=0.0.6

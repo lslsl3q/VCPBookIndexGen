@@ -1,0 +1,1 @@
+python main.py ./我有一座冒险屋.txt
